@@ -1,0 +1,141 @@
+/* Importar fuente externa de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Fondo global con imagen */
+body {
+  background-image: url('assets/img/fondo.jpeg'); /* Aquí va la ruta de tu imagen */
+  background-size: cover; /* La imagen cubrirá toda la pantalla */
+  background-position: center center; /* Centrar la imagen */
+  background-attachment: fixed; /* La imagen permanece fija cuando se desplaza */
+  background-repeat: no-repeat; /* Evitar que la imagen se repita */
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif; /* Aplicar la fuente externa al cuerpo */
+}
+
+/* Estilos del header */
+header {
+  background-color: #000; /* Fondo negro */
+  padding: 10px 0; /* Eliminar el padding lateral para que el logo y el carrito estén más cerca del borde */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Montserrat', sans-serif; /* Aplicar la fuente externa */
+}
+
+/* Contenedor principal del header */
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos del logotipo */
+.logo {
+  width: 80px;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  margin-left: 0px; /* Mover el logotipo más hacia la izquierda */
+}
+
+/* Hover del logotipo */
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Contenedor de la navegación */
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+/* Estilos de los enlaces */
+nav a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s, opacity 0.3s;
+  border-radius: 5px;
+  font-weight: 600; /* Hacer el texto más grueso */
+  position: relative;
+  overflow: hidden; /* Para evitar que el subrayado animado se salga del contenedor */
+}
+
+/* Hover más elaborado para los enlaces */
+nav a:hover {
+  background: linear-gradient(90deg, white, #b7c725);
+  color: #000;
+  transform: translateY(-3px); /* Elevar el enlace al pasar el mouse */
+  opacity: 0.9;
+}
+
+/* Subrayado animado en hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: red;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Estado activo */
+nav a:active {
+  background-color: #16a085;
+}
+
+/* Carrito de compras */
+.cart {
+  display: flex;
+  align-items: center;
+  margin-right: 2px; /* Mover el carrito más hacia la derecha */
+}
+
+.cart-icon {
+  width: 60px; /* Aumentar ligeramente el tamaño del icono del carrito */
+  height: auto;
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px; /* Ajuste de padding en pantallas pequeñas */
+  }
+
+  .logo-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .cart {
+    margin-top: 15px;
+  }
+}
